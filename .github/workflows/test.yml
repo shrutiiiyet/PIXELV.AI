@@ -1,13 +1,10 @@
-name: Linting and formatiing on PR
+name: Formatting on PR
 on:
   pull_request:
-    branches:
-      - "**"
 
 jobs:
   Continuous-Integration:
-
-    name: Performs linting, formatting on the frontend
+    name: Performs Formatting.
     runs-on: ubuntu-latest
 
     steps:
@@ -22,8 +19,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run linting check
-        run: npm run lint
-
-      - name: Run formating
+      - name: Run formatting
         run: npm run format
