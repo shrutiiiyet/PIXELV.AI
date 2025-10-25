@@ -9,8 +9,8 @@
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "lint": "eslist",
     "format:backend": "prettier --write backend/",
-    "format: frontend": "prettier --write frontend/",
-    "format:": "concurrently \"npm run format:frontend\" && npm run format:backend"
+    "format:frontend": "prettier --write frontend/",
+    "format": "concurrently \"npm run format:frontend\" && npm run format:backend"
   },
   "devDependencies": {
     "@types/bun": "latest"
