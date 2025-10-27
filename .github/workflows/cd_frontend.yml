@@ -1,4 +1,4 @@
-name: Deploy the backend
+name: Deploy the frontend
 on:
   push:
     branches: [ main ]
@@ -19,9 +19,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/Dockerfile.backend
+          file: ./docker/Dockerfile.frontend
           push: true
-          tags: shrutiiiyet/pixelvai-backend:${{ github.sha }}
+          tags: shrutiiiyet/pixelvai-frontend:${{ github.sha }}
       - name: Deploy to the VM
         run: |
           mkdir -p ~/.ssh
