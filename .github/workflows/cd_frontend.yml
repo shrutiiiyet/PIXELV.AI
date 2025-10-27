@@ -1,4 +1,4 @@
-name: Deploy the backend
+name: Deploy the frontenf
 on:
   push:
     branches: [ main ]
