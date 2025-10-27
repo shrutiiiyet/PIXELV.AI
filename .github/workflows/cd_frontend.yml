@@ -24,6 +24,6 @@ jobs:
           tags: shrutiiiyet/pixelvai-frontend:${{ github.sha }}
       - name: Deploy to the VM
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/authorized_keys
-          chmod 600 ~/.ssh/authorized_keys
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@154.26.134.104 -t "docker stop pixelvai-frontend && docker run -d -p 5173:80 shrutiiiyet/pixelvai-frontend:${{ github.sha }}"
