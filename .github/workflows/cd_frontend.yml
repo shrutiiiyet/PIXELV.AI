@@ -1,4 +1,4 @@
-name: Deploy the frontend
+name: Deploy the backend
 on:
   push:
     branches: [ main ]
@@ -19,12 +19,10 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/Dockerfile.frontend
+          file: ./docker/Dockerfile.backend
           push: true
-          tags: shrutiiiyet/pixelvai-frontend:${{ github.sha }}
-      
+          tags: shrutiiiyet/pixelvai-backend:${{ github.sha }}
       - name: Deploy to the VM
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
-          chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@64.227.169.180 -t "docker stop pixelvai-frontend && docker container run --name user -d -p 5173:5173 shrutiiiyet/pixelvai-frontend:${{ github.sha }}"
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@154.26.134.104 -t "docker stop pixelvai-frontend && docker run -d -p 5173:5173 shrutiiiyet/pixelvai-frontend:${{ github.sha }}"
