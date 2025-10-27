@@ -1,16 +1,6 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:15
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_USER: myuser
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
   backend:
     build:
       context: .
@@ -30,8 +20,7 @@ services:
       - "5173:5173"
     depends_on:
       - backend
-    environment:
-      VITE_BACKEND_URL: http://backend:3000
+  
 
 volumes:
   pgdata:
