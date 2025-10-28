@@ -33,5 +33,6 @@ jobs:
           --name pixelvai-frontend \
           -p 5173:5173 \
           shrutiiiyet/pixelvai-frontend:${{ github.sha }}
-          docker run --name pixelvai-frontend -d -p 5173:5173 shrutiiiyet/pixelvai-frontend:${{ github.sha }}"
+          docker run --name pixelvai-frontend -d -p 5173:5173 shrutiiiyet/pixelvai-frontend:${{ github.sha }}
+          "
           

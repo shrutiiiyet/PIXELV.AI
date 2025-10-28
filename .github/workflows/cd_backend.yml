@@ -34,4 +34,5 @@ jobs:
           -e SUPABASE_URL='${{ secrets.SUPABASE_URL }}' \
           -e SUPABASE_ANON_KEY='${{ secrets.SUPABASE_ANON_KEY }}' \
           -p 3000:3000 \
-          shrutiiiyet/pixelvai-backend:${{ github.sha }}"
+          shrutiiiyet/pixelvai-backend:${{ github.sha }}
+          "
