@@ -1,9 +1,9 @@
 name: Prettier Autoformat
 
 on:
-  push:
+  pull_request:
     branches:
-      - formatting
+      - main
 
 permissions:
   contents: write
