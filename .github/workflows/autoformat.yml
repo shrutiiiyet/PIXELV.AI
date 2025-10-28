@@ -37,10 +37,11 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
 
+            BRANCH=$(echo "${GITHUB_REF#refs/heads/}")
             LAST_COMMIT_MSG=$(git log -1 --pretty=%B | head -n 1 | tr -d '\r' | tr -d '\n')
             git add .
             git commit -m "🧹 Autoformat: ${LAST_COMMIT_MSG}"
-            git push
+            git push origin HEAD:${BRANCH}
           else
             echo "✅ Code is already formatted. No changes to commit."
           fi
