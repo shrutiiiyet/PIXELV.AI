@@ -1,9 +1,9 @@
-name: Run Vitest
+name: Run Tests
 
 on:
-  push:
+  pull_request:
     branches:
-      - automating-tests
+      - main
 
 jobs:
   test:
