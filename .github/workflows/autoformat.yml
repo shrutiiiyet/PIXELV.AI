@@ -37,7 +37,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            BRANCH=$(echo "${GITHUB_REF#refs/heads/}")
+            BRANCH=${{ github.head_ref }}
             LAST_COMMIT_MSG=$(git log -1 --pretty=%B | head -n 1 | tr -d '\r' | tr -d '\n')
             git add .
             git commit -m "🧹 Autoformat: ${LAST_COMMIT_MSG}"
