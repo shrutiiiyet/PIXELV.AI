@@ -27,7 +27,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm install:all
+        run: npm run install:all
 
       - name: Run Vitest tests
         run: npm test
