@@ -1,5 +1,4 @@
-name: Prettier 
-run: npx prettier --write . '!./.github/workflows/*'
+name: Prettier Autoformat
 
 on:
   push:
@@ -7,7 +6,7 @@ on:
       - formatting
 
 permissions:
-  contents: write 
+  contents: write
 
 jobs:
   prettier:
@@ -17,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Needed for committing changes
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,12 +24,12 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm i
+        run: npm ci
 
       - name: Run Prettier autoformat
         run: |
           echo "🎨 Running Prettier to autoformat code..."
-          npx prettier --write .
+          npx prettier --write . --ignore-path .gitignore
 
       - name: Commit and push changes if formatting was applied
         run: |
