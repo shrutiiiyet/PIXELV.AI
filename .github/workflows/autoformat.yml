@@ -29,7 +29,7 @@ jobs:
       - name: Run Prettier autoformat
         run: |
           echo "🎨 Running Prettier to autoformat code..."
-          npx prettier --write . --ignore-path .gitignore
+          npx prettier --write . --ignore-path .prettierignore
 
       - name: Commit and push changes if formatting was applied
         run: |
