@@ -10,10 +10,14 @@
     "lint": "eslist",
     "format:backend": "prettier --write backend/",
     "format:frontend": "prettier --write frontend/",
-    "format": "concurrently \"npm run format:frontend\" && npm run format:backend"
+    "format": "concurrently \"npm run format:frontend\" && npm run format:backend",
+    "install:all": "npm i && cd backend && npm i && cd ../frontend && npm i && cd ..",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "supertest": "^7.1.4",
+    "vitest": "^4.0.4"
   },
   "peerDependencies": {
     "typescript": "^5"
