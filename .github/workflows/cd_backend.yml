@@ -26,4 +26,4 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           chmod 700 ~/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@154.26.134.104 -t "docker stop pixelvai-backend && docker run -d \ -e SUPABASE_URL=${{ secrets.SUPABASE_URL }} \-e SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \ -p 3000:3000 shrutiiiyet/pixelvai-backend:${{ github.sha }}"
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@154.26.134.104 -t "docker stop pixelvai-backend && docker run --name pixelvai-backend -d \ -e SUPABASE_URL=${{ secrets.SUPABASE_URL }} \-e SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }} \ -p 3000:3000 shrutiiiyet/pixelvai-backend:${{ github.sha }}"
