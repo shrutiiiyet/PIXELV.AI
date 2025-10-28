@@ -11,6 +11,7 @@
     "format:backend": "prettier --write backend/",
     "format:frontend": "prettier --write frontend/",
     "format": "concurrently \"npm run format:frontend\" && npm run format:backend",
+    "install:all": "cd backend && npm i && cd ../frontend && npm i && cd ..",
     "test": "vitest"
   },
   "devDependencies": {
