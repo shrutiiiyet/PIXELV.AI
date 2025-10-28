@@ -1,0 +1,44 @@
+name: Prettier Autoformat
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write 
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Needed for committing changes
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run Prettier autoformat
+        run: |
+          echo "🎨 Running Prettier to autoformat code..."
+          npx prettier --write .
+
+      - name: Commit and push changes if formatting was applied
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "🧹 Autoformat code with Prettier"
+            git push
+          else
+            echo "✅ Code is already formatted. No changes to commit."
+          fi
