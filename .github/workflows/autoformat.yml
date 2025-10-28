@@ -1,4 +1,5 @@
-name: Prettier Autoformat
+name: Prettier 
+run: npx prettier --write . '!./.github/workflows/*'
 
 on:
   push:
