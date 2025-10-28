@@ -31,7 +31,7 @@ jobs:
           docker rm pixelvai-frontend || true
           docker run -d \
           --name pixelvai-frontend \
-          -p 80:80 \
+          -p 80:5173 \
           shrutiiiyet/pixelvai-frontend:${{ github.sha }}
           "
           
